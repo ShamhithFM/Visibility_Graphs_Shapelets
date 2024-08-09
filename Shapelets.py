@@ -15,7 +15,9 @@ df = pd.read_excel(r'C:\Users\gupta.tanm\PycharmProjects\Cuffless_Blood_Predicti
 row1 = df['Gearboxload'].values
 row2 = df['Gearbox+Load on plate'].values
 row3 = df['Faulted rotor bearing'].values
-X = np.row_stack((row1, row2, row3))
+row4 = df['Healthy motor'].values
+row5 = df['Zero Resistance'].values
+X = np.row_stack((row1, row2, row3, row4, row5))
 window_size = 512
 X1 = []
 
@@ -30,7 +32,9 @@ for i in range(X.shape[0]):
 X = np.array(X1)
 y = np.array([1, 1, 1, 1, 1, 1, 1, 1,
               2, 2, 2, 2, 2, 2, 2, 2,
-              3, 3, 3, 3, 3, 3, 3, 3])
+              3, 3, 3, 3, 3, 3, 3, 3,
+              4, 4, 4, 4, 4, 4, 4, 4,
+              5, 5, 5, 5, 5, 5, 5, 5])
 
 # Load the data set and fit the classifier
 # X, _, y, _ = load_gunpoint(return_X_y=True)
